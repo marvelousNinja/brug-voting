@@ -1,0 +1,3 @@
+this.ImportantToServerOnly = {
+  someField: true
+}
