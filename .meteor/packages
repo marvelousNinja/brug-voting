@@ -8,3 +8,5 @@ meteor-platform
 autopublish
 insecure
 stylus
+sanjo:jasmine
+velocity:html-reporter
