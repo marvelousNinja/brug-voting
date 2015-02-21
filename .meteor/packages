@@ -8,3 +8,6 @@ meteor-platform
 autopublish
 insecure
 stylus
+accounts-base
+accounts-password
+accounts-ui

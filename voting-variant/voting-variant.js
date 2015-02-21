@@ -11,9 +11,11 @@ if (Meteor.isClient) {
 
   Template.votingVariant.events({
     'click .voting-variant__vote': function() {
-      VotingVariants.update(this._id, { $inc: {
-        votes: 1
-      }});
+      Meteor.call('voteFor', this._id, function(error, result) {
+        if(error) {
+          throw error;
+        }
+      });
     }
   });
 }

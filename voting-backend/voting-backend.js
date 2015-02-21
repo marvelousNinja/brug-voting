@@ -1,5 +1,16 @@
 this.VotingVariants = new Meteor.Collection('votingVariants');
 
+Meteor.methods({
+  voteFor: function(variantId) {
+    if(! Meteor.userId()) {
+      throw new Meteor.Error('Not authorized', 403);
+    }
+    VotingVariants.update(variantId, { $inc: {
+      votes: 1
+    }});
+  }
+});
+
 if (Meteor.isServer) {
   Meteor.startup(function() {
     if (VotingVariants.find({}).count() === 0) {
